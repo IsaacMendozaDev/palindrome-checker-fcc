@@ -28,7 +28,7 @@ body {
   height: 100dvh;
   overflow-x: hidden;
 
-  background: var(--color-950);
+  background: linear-gradient(125deg, #0f0f0f, #2c3e50);
 
   font-family: "Dosis", sans-serif, system-ui;
 
@@ -41,12 +41,14 @@ body {
 .main {
   max-width: 600px;
 
-  background: var(--color-900);
-  color: var(--color-100);
-
   padding: 3rem 1rem;
 
+  backdrop-filter: blur(100px);
+  background-color: #ffffff09;
+  color: var(--color-100);
+
   border-radius: 8px;
+  border: 1px solid #f7f7f7;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   display: flex;
@@ -54,7 +56,7 @@ body {
   align-items: center;
 
   .title {
-    font-size: 61.04px;
+    font-size: 5rem;
     font-weight: 500;
     line-height: 1;
 
@@ -78,9 +80,11 @@ body {
       width: 120px;
 
       background: transparent;
-      border-bottom: 3px solid var(--color-950);
+      border-bottom: 3px solid #f7f7f7;
 
-      padding: 1rem 1rem 0.2rem;
+      text-align: center;
+
+      padding: 1rem 0.1rem 0.2rem;
       margin-bottom: 2rem;
 
       font-size: 20px;
@@ -89,7 +93,7 @@ body {
       transition: all 0.4s ease-in;
     }
     .input:focus {
-      width: 100%;
+      width: 80%;
 
       outline: none;
     }
@@ -119,9 +123,6 @@ body {
   .container-result {
     display: flex;
     align-items: center;
-  }
-
-  .container-result {
     min-height: 10dvh;
   }
 
@@ -129,11 +130,72 @@ body {
     .title {
       font-size: 25px;
       margin-bottom: 0.5rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .p {
-      color: var(--color-300);
+      /* color: var(--color-300); */
+
       padding: 0 3rem;
-      text-align: justify;
+      text-wrap: pretty;
+    }
+    .icon {
+      width: 3rem;
+    }
+  }
+}
+#result {
+  font-size: 25px;
+  animation: focus-in 1s ease-out forwards;
+
+  overflow: hidden;
+  white-space: nowrap;
+
+  .good {
+    color: rgb(67, 165, 67);
+  }
+  .bad {
+    color: rgb(184, 52, 52);
+  }
+}
+
+@keyframes focus-in {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@media (width < 610px) {
+  .main {
+    backdrop-filter: blur(0px);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    .box-explanation {
+      backdrop-filter: blur(100px);
+
+      backdrop-filter: blur(100px);
+      background-color: #ffffff09;
+      color: var(--color-100);
+
+      border-radius: 8px;
+      border: 1px solid #f7f7f7;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+      padding: 1rem;
+
+      .p {
+        padding: 0.3rem;
+        text-wrap: balance;
+      }
     }
   }
 }

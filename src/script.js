@@ -1,6 +1,6 @@
-$textInput = document.getElementById("text-input");
-$resultText = document.getElementById("result");
-$checkBtn = document.getElementById("check-btn");
+const $textInput = document.getElementById("text-input");
+const $resultText = document.getElementById("result");
+const $checkBtn = document.getElementById("check-btn");
 
 const isPalindrome = (word) => {
   const reversedWord = word.split("").reverse().join("");
@@ -9,56 +9,47 @@ const isPalindrome = (word) => {
 };
 
 const filterWord = (word) => {
-  const invalidCharacters = /[^a-z0-9]/gi;
+  const invalidCharacters = /[\W_]/g;
   const cleanWord = word.replace(invalidCharacters, "");
 
   return cleanWord;
 };
 
 const displayResultText = (boolean, word) => {
-  if (boolean) {
-    $resultText.innerText = `${word} is a palindrome`;
-    return;
-  }
+  const msg = boolean
+    ? `<span class="good">${word}</span> is a palindrome`
+    : `<span class="bad">${word}</span> is not a palindrome`;
 
-  $resultText.innerText = `${word} is not a palindrome`;
+  $resultText.innerHTML = msg;
+  setTimeout(() => {
+    $resultText.style.width = "auto";
+    $resultText.style.animation = "";
+  }, 100);
 };
 
 const reset = () => {
   $textInput.value = "";
+  $resultText.innerHTML = "";
+  $resultText.style.width = 0;
+  $resultText.style.animation = "none";
 };
 
-$checkBtn.addEventListener("click", () => {
+const validInput = () => {
   const word = $textInput.value;
 
-  $resultText.innerText = "";
-
   if (!word) return alert("Please input a value");
+  reset();
 
   const cleanWord = filterWord(word.toLowerCase());
-
   const isPalindromeOrNot = isPalindrome(cleanWord);
-  console.log(isPalindromeOrNot);
 
   displayResultText(isPalindromeOrNot, word);
+};
 
-  reset();
-});
+$checkBtn.addEventListener("click", validInput);
+
 $textInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    const word = $textInput.value;
-
-    $resultText.innerText = "";
-
-    if (!word) return alert("Please input a value");
-
-    const cleanWord = filterWord(word.toLowerCase());
-
-    const isPalindromeOrNot = isPalindrome(cleanWord);
-    console.log(isPalindromeOrNot);
-
-    displayResultText(isPalindromeOrNot, word);
-
-    reset();
+    validInput();
   }
 });
