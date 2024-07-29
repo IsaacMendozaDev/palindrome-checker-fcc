@@ -124,6 +124,8 @@ body {
     display: flex;
     align-items: center;
     min-height: 10dvh;
+
+    max-width: 100%;
   }
 
   .box-explanation {
@@ -150,7 +152,7 @@ body {
   font-size: 25px;
   animation: focus-in 1s ease-out forwards;
 
-  overflow: hidden;
+  overflow: auto hidden;
   white-space: nowrap;
 
   .good {
