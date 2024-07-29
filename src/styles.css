@@ -1,0 +1,139 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-50: #f2f9f9;
+  --color-100: #ddeff0;
+  --color-200: #bfe0e2;
+  --color-300: #92cace;
+  --color-400: #5faab1;
+  --color-500: #438e96; /* BASE COLOR */
+  --color-600: #3b757f;
+  --color-700: #356169;
+  --color-800: #325158;
+  --color-900: #2d464c;
+  --color-950: #1a2c32;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  width: 100dvw;
+  height: 100dvh;
+  overflow-x: hidden;
+
+  background: var(--color-950);
+
+  font-family: "Dosis", sans-serif, system-ui;
+
+  padding: 0.5rem;
+
+  display: grid;
+  place-content: center;
+}
+
+.main {
+  max-width: 600px;
+
+  background: var(--color-900);
+  color: var(--color-100);
+
+  padding: 3rem 1rem;
+
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    font-size: 61.04px;
+    font-weight: 500;
+    line-height: 1;
+
+    text-align: center;
+
+    margin-bottom: 2rem;
+  }
+  .p {
+    font-size: 20px;
+  }
+
+  .box-checker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .input {
+      border: none;
+      box-shadow: none;
+      width: 120px;
+
+      background: transparent;
+      border-bottom: 3px solid var(--color-950);
+
+      padding: 1rem 1rem 0.2rem;
+      margin-bottom: 2rem;
+
+      font-size: 20px;
+      color: var(--color-100);
+
+      transition: all 0.4s ease-in;
+    }
+    .input:focus {
+      width: 100%;
+
+      outline: none;
+    }
+
+    .btn {
+      min-width: 100px;
+      padding: 1rem;
+
+      color: var(--color-50);
+      background: var(--color-500);
+
+      cursor: pointer;
+
+      border: 1px solid var(--color-500);
+      border-radius: 4px;
+
+      font-size: 16px;
+      font-weight: 600;
+
+      transition: all 0.6s ease;
+    }
+    .btn:hover {
+      background: transparent;
+      border: 1px solid var(--color-500);
+    }
+  }
+  .container-result {
+    display: flex;
+    align-items: center;
+  }
+
+  .container-result {
+    min-height: 10dvh;
+  }
+
+  .box-explanation {
+    .title {
+      font-size: 25px;
+      margin-bottom: 0.5rem;
+    }
+    .p {
+      color: var(--color-300);
+      padding: 0 3rem;
+      text-align: justify;
+    }
+  }
+}
